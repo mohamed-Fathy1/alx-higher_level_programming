@@ -9,9 +9,9 @@ def main():
         print("0 arguments.")
         sys.exit(1)
 
-    print("{} argument:".format(n - 1))
+    print("{:d} argument:".format(n - 1))
     for i in range(1, n):
-        print("{}: {}".format(i, sys.argv[i]))
+        print("{:d}: {}".format(i, sys.argv[i]))
 
 
 if __name__ == '__main__':
