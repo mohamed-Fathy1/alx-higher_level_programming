@@ -10,15 +10,15 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *ptr1 = *head;
 	int len = 0;
+	int x = 0;
+	int c = 0;
+	int arr[1000000];
 
 	while (ptr1)
 	{
 		ptr1 = ptr1->next;
 		len++;
 	}
-	const int const_len = len;
-	int arr[const_len];
-	int x = 0;
 
 	ptr1 = *head;
 	while (ptr1)
@@ -28,7 +28,6 @@ int is_palindrome(listint_t **head)
 		x++;
 	}
 	ptr1 = *head;
-	int c = 0;
 
 	while (c != len)
 	{
