@@ -1,6 +1,25 @@
 #include "lists.h"
 #include <stdio.h>
 
+
+/**
+ * reversed - function
+ * @hhead: arg1
+ * Return: listint_t
+ */
+listint_t *reversed(listint_t *head)
+{
+	listint_t *prev = NULL;
+	while (head)
+	{
+		listint_t *next = head->next;
+		head->next = prev;
+		prev = head;
+		head = next;
+	}
+	return (prev);
+}
+
 /**
  * is_palindrome - function
  * @head: arg1
@@ -8,32 +27,24 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *ptr1 = *head;
-	int len = 0;
-	int x = 0;
-	int c = 0;
-	int arr[1000000];
-
-	while (ptr1)
+	listint_t *fast = *head;
+	listint_t *slow = *head;
+	
+	while (fast && fast->next)
 	{
-		ptr1 = ptr1->next;
-		len++;
+		fast = fast->next->next;
+		slow = slow->next;
 	}
 
-	ptr1 = *head;
-	while (ptr1)
-	{
-		arr[x] = ptr1->n;
-		ptr1 = ptr1->next;
-		x++;
-	}
-	ptr1 = *head;
+	slow = reversed(slow);
+	fast = *head;
 
-	while (c != len)
+	while (slow != NULL)
 	{
-		if (ptr1->n != arr[--len])
+		if (slow->n != fast->n)
 			return (0);
-		ptr1 = ptr1->next;
+		slow = slow->next;
+		fast = fast->next;
 	}
 	return (1);
 }
