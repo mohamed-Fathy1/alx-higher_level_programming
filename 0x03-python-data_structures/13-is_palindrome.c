@@ -4,15 +4,17 @@
 
 /**
  * reversed - function
- * @hhead: arg1
+ * @head: arg1
  * Return: listint_t
  */
 listint_t *reversed(listint_t *head)
 {
 	listint_t *prev = NULL;
+
 	while (head)
 	{
 		listint_t *next = head->next;
+
 		head->next = prev;
 		prev = head;
 		head = next;
@@ -29,7 +31,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *fast = *head;
 	listint_t *slow = *head;
-	
+
 	while (fast && fast->next)
 	{
 		fast = fast->next->next;
