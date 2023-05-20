@@ -4,6 +4,9 @@ def roman_to_int(roman_string):
 
     result = 0
 
+    if type(roman_string) != str or !roman_string:
+        return (None)
+
     for i, val in enumerate(roman_string):
         if i < len(roman_string) - 1:
             if ((val == 'I' and roman_string[i + 1] in ('X', 'V'))
