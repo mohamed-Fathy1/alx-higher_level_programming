@@ -4,8 +4,8 @@ def roman_to_int(roman_string):
 
     result = 0
 
-    if type(roman_string) != str or !roman_string:
-        return (None)
+    if type(roman_string) != str or roman_string is None:
+        return (0)
 
     for i, val in enumerate(roman_string):
         if i < len(roman_string) - 1:
