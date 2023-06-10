@@ -1,6 +1,10 @@
 #!/usr/bin/python3
+'''this is the add module'''
+
 
 def add_integer(a, b=98):
+    ''' this is the add function'''
+
     if isinstance(a, float):
         a = int(a)
     elif not isinstance(a, int):
