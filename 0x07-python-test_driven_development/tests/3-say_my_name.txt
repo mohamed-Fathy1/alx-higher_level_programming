@@ -1,0 +1,39 @@
+The ``3-say_my_name`` module
+==================================
+
+Using ``say_my_name``
+------------------------
+
+First import ``say_my_name`` from the ``3-say_my_name.py`` module. Since the file name contains a numeral, you can't use the simple ``from 3-say_my_name.py import say_my_name``. You can instead use the following syntax:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+    >>> say_my_name("Dave", "Bowman")
+    My name is Dave Bowman
+
+
+    >>> say_my_name("Frank", "")
+    My name is Frank 
+
+    >>> say_my_name("", "Poole")
+    My name is Poole
+
+    >>> say_my_name("Frank")
+    My name is Frank 
+
+
+    >>> say_my_name(2001, "Bowman")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("Dave", 2010)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name(2001)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
