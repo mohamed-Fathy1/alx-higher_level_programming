@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
+'''module'''
 
 def lookup(obj):
-    return list(dir(obj))
+    '''function'''
+    return dir(obj)
