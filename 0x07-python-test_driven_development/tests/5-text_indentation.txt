@@ -9,6 +9,34 @@ First import ``text_indentation`` from the ``5-text_indentation`` module. Since 
     >>> text_indentation = __import__('5-text_indentation').text_indentation
 
 
+    >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres""") #doctest: +NORMALIZE_WHITESPACE
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Quonam modo?
+    <BLANKLINE>
+    Utrum igitur tibi litteram videor an totas paginas commovere?
+    <BLANKLINE>
+    Non autem hoc:
+    <BLANKLINE>
+    igitur ne illud quidem.
+    <BLANKLINE>
+    Fortasse id optimum, sed ubi illud:
+    <BLANKLINE>
+    Plus semper voluptatis?
+    <BLANKLINE>
+    Teneo, inquit, finem illi videri nihil dolere.
+    <BLANKLINE>
+    Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
+    <BLANKLINE>
+    Si id dicis, vicimus.
+    <BLANKLINE>
+    Inde sermone vario sex illa a Dipylo stadia confecimus.
+    <BLANKLINE>
+    Sin aliud quid voles, postea.
+    <BLANKLINE>
+    Quae animi affectio suum cuique tribuens atque hanc, quam dico.
+    <BLANKLINE>
+    Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
 
     >>> text_indentation(".?:")
     .
@@ -18,20 +46,20 @@ First import ``text_indentation`` from the ``5-text_indentation`` module. Since 
     :
     <BLANKLINE>
 
-    >>> text_indentation("Stop.No, come back?")
+    >>> text_indentation("Stop.No, come back?") #doctest: +NORMALIZE_WHITESPACE
     Stop.
     <BLANKLINE>
     No, come back?
     <BLANKLINE>
 
-    >>> text_indentation("""Quae animi affectio suum cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres""")
+    >>> text_indentation("""Quae animi affectio suum cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres""") #doctest: +NORMALIZE_WHITESPACE
     Quae animi affectio suum cuique tribuens atque hanc, quam dico.
     <BLANKLINE>
     Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
 
     >>> text_indentation("")
 
-    >>> text_indentation(". ? : -")
+    >>> text_indentation(". ? : -") #doctest: +NORMALIZE_WHITESPACE
     .
     <BLANKLINE>
     ?
@@ -40,7 +68,7 @@ First import ``text_indentation`` from the ``5-text_indentation`` module. Since 
     <BLANKLINE>
     -
 
-    >>> text_indentation("""Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere.""")
+    >>> text_indentation("""Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere.""") #doctest: +NORMALIZE_WHITESPACE
     Non autem hoc:
     <BLANKLINE>
     igitur ne illud quidem.
@@ -52,7 +80,7 @@ First import ``text_indentation`` from the ``5-text_indentation`` module. Since 
     Teneo, inquit, finem illi videri nihil dolere.
     <BLANKLINE>
 
-    >>> text_indentation("Clearly. When? But do you know about:    that")
+    >>> text_indentation("Clearly. When? But do you know about:    that") #doctest: +NORMALIZE_WHITESPACE
     Clearly.
     <BLANKLINE>
     When?
