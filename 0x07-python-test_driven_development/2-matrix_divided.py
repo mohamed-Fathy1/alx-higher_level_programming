@@ -6,6 +6,8 @@ def matrix_divided(matrix, div):
     """Function divides"""
     matrix_copy = []
 
+    if type(div) not in (int, float):
+        raise TypeError("div must be a number")
     if not isinstance(matrix, list):
         raise TypeError("matrix must be a matrix (list of lists)"
                         " of integers/floats")
@@ -21,6 +23,13 @@ def matrix_divided(matrix, div):
         if size != len(i):
             raise TypeError("Each row of the matrix must have the same size")
         for j in i:
-            tmp.append(round(j / div, 2))
+            if type(j) in (int, float):
+                try:
+                    tmp.append(round(j / div, 2))
+                except ZeroDivisionError:
+                    raise ZeroDivisionError("division by zero")
+            else:
+                raise TypeError("matrix must be a matrix (list of lists) "
+                                "of integers/floats")
         matrix_copy.append(tmp)
     return matrix_copy
