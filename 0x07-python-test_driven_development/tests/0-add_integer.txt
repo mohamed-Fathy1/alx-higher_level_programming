@@ -41,3 +41,43 @@ Strings:
     >>> add_integer("str", "abb")
     Traceback (most recent call last):
     TypeError: a must be an integer
+
+SyntaxError:
+===============
+    >>> add_integer(, 3)
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+No argument:
+===============
+    >>> add_integer()
+    Traceback (most recent call last):
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+one argument:
+===============
+    >>> add_integer(4)
+    102
+
+OverflowError:
+==============
+    >>> pos_inf = float('inf')  # positive infinity
+    >>> add_integer(pos_inf, 4.0)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+    >>> neg_inf = float('-inf')  # negative infinity
+    >>> add_integer(neg_inf, 4.0)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+NaN:
+====
+    >>> not_a_num = float('nan')   # NaN ("not a number", )
+    >>> add_integer(not_a_num, 4.0)
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
+
