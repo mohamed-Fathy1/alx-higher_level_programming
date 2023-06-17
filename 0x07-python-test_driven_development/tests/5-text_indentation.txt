@@ -80,7 +80,7 @@ First import ``text_indentation`` from the ``5-text_indentation`` module. Since 
     Teneo, inquit, finem illi videri nihil dolere.
     <BLANKLINE>
 
-    >>> text_indentation("Clearly. When? But do you know about:    that") #doctest: +NORMALIZE_WHITESPACE
+    >>> text_indentation("Clearly. When? But do you know about:    that")
     Clearly.
     <BLANKLINE>
     When?
@@ -99,3 +99,12 @@ First import ``text_indentation`` from the ``5-text_indentation`` module. Since 
     Traceback (most recent call last):
         ...
     TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+    >>> text_indentation("Holberton. School? How are you: John")
+    Holberton.
+    <BLANKLINE>
+    School?
+    <BLANKLINE>
+    How are you:
+    <BLANKLINE>
+    John
