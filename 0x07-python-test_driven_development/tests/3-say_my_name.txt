@@ -8,32 +8,25 @@ First import ``say_my_name`` from the ``3-say_my_name.py`` module. Since the fil
 
     >>> say_my_name = __import__('3-say_my_name').say_my_name
 
-    >>> say_my_name("Dave", "Bowman")
-    My name is Dave Bowman
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
 
+    >>> say_my_name("", "White") #doctest: +NORMALIZE_WHITESPACE
+    My name is White
 
-    >>> say_my_name("Frank", "")
-    My name is Frank 
-
-    >>> say_my_name("", "Poole")
-    My name is Poole
-
-    >>> say_my_name("Frank")
-    My name is Frank 
-
-
-    >>> say_my_name(2001, "Bowman")
+    >>> say_my_name(1, "White")
     Traceback (most recent call last):
-        ...
     TypeError: first_name must be a string
 
-    >>> say_my_name("Dave", 2010)
+
+    >>> say_my_name("White", [1, 2, 3, 4])
     Traceback (most recent call last):
-        ...
     TypeError: last_name must be a string
+    
+    >>> say_my_name("White") #doctest: +NORMALIZE_WHITESPACE
+    My name is White
 
-    >>> say_my_name(2001)
+
+    >>> say_my_name()
     Traceback (most recent call last):
-        ...
-    TypeError: first_name must be a string
-
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
