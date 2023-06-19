@@ -2,6 +2,7 @@
 '''test Module'''
 from models.base import Base
 import unittest
+import math
 
 
 class TestBase(unittest.TestCase):
@@ -72,9 +73,9 @@ class TestBase(unittest.TestCase):
     def test_inf_id(self):
         self.assertEqual(float('inf'), Base(float('inf')).id)
 
-    # def test_NaN_id(self):
-        # self.assertEqual(math.isnan(float('nan')),
-        # math.isnan(Base(float('nan')).id))
+    def test_NaN_id(self):
+        self.assertEqual(math.isnan(float('nan')),
+        math.isnan(Base(float('nan')).id))
 
     def test_two_args(self):
         with self.assertRaises(TypeError):
