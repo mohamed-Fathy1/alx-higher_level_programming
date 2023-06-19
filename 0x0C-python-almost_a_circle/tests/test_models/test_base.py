@@ -37,6 +37,49 @@ class TestBase(unittest.TestCase):
         b.id = 9
         self.assertEqual(9, b.id)
 
+    def test_nb_instances_private(self):
+        with self.assertRaises(AttributeError):
+            print(Base(12).__nb_intances)
+
+    def test_float_id(self):
+        self.assertEqual(3.5, Base(3.5).id)
+
+    def test_str_id(self):
+        self.assertEqual("str", Base("str").id)
+
+    def test_complex_id(self):
+        self.assertEqual(complex(7), Base(complex(7)).id)
+
+    def test_list_id(self):
+        self.assertEqual([1, 2, 3], Base([1, 2, 3]).id)
+
+    def test_dict_id(self):
+        self.assertEqual({"a": 1, "b": 2, "c": 3},
+                         Base({"a": 1, "b": 2, "c": 3}).id)
+
+    def test_tuple_id(self):
+        self.assertEqual((1, 2), Base((1, 2)).id)
+
+    def test_bool_id(self):
+        self.assertEqual(True, Base(True).id)
+
+    def test_set_id(self):
+        self.assertEqual({1, 2, 3}, Base({1, 2, 3}).id)
+
+    def test_frozenset_id(self):
+        self.assertEqual(frozenset({1, 2, 3}), Base(frozenset({1, 2, 3})).id)
+
+    def test_inf_id(self):
+        self.assertEqual(float('inf'), Base(float('inf')).id)
+
+    # def test_NaN_id(self):
+        # self.assertEqual(math.isnan(float('nan')),
+        # math.isnan(Base(float('nan')).id))
+
+    def test_two_args(self):
+        with self.assertRaises(TypeError):
+            Base(1, 2)
+
 
 if __name__ == '__main__':
     unittest.main()
