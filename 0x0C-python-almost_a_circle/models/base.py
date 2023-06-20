@@ -28,7 +28,7 @@ class Base:
         content_text = []
         for item in list_objs:
             content_text.append(item.to_dictionary())
-        if list_objs is None:
+        if list_objs is not None:
             content_text = Base.to_json_string(content_text)
         else:
             content_text = "[]"
