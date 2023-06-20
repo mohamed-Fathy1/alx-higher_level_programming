@@ -83,3 +83,10 @@ class Rectangle(Base):
     def area(self):
         '''calc ares method'''
         return self.width * self.height
+
+    def display(self):
+        '''display Rectangle'''
+        for row in range(self.height):
+            for col in range(self.width):
+                print("#", end="")
+            print()
