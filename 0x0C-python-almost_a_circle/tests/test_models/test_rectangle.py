@@ -85,5 +85,91 @@ class TestRectangle(unittest.TestCase):
             Rectangle(1, 2, 3, 4, 5, 6)
 
 
+class TestRectangleExptions(unittest.TestCase):
+    def test_instantiation(self):
+        r = Rectangle(10, 20, 5, 10, 1)
+        self.assertEqual(r.width, 10)
+        self.assertEqual(r.height, 20)
+        self.assertEqual(r.x, 5)
+        self.assertEqual(r.y, 10)
+        self.assertEqual(r.id, 1)
+
+    def test_width_setter(self):
+        r = Rectangle(10, 20)
+        r.width = 15
+        self.assertEqual(r.width, 15)
+        with self.assertRaises(TypeError):
+            r.width = "invalid"
+        with self.assertRaises(ValueError):
+            r.width = -5
+
+    def test_height_setter(self):
+        r = Rectangle(10, 20)
+        r.height = 15
+        self.assertEqual(r.height, 15)
+        with self.assertRaises(TypeError):
+            r.height = "invalid"
+        with self.assertRaises(ValueError):
+            r.height = -5
+
+    def test_x_setter(self):
+        r = Rectangle(10, 20)
+        r.x = 15
+        self.assertEqual(r.x, 15)
+        with self.assertRaises(TypeError):
+            r.x = "invalid"
+        with self.assertRaises(ValueError):
+            r.x = -5
+
+    def test_y_setter(self):
+        r = Rectangle(10, 20)
+        r.y = 15
+        self.assertEqual(r.y, 15)
+        with self.assertRaises(TypeError):
+            r.y = "invalid"
+        with self.assertRaises(ValueError):
+            r.y = -5
+
+    def test_bad_width(self):
+        with self.assertRaises(ValueError) as cm:
+            r = Rectangle(-10, 20, 5, 10)
+        self.assertEqual(str(cm.exception), "width must be > 0")
+
+    def test_bad_height(self):
+        with self.assertRaises(ValueError) as cm:
+            r = Rectangle(10, -20, 5, 10)
+        self.assertEqual(str(cm.exception), "height must be > 0")
+
+    def test_bad_x(self):
+        with self.assertRaises(ValueError) as cm:
+            r = Rectangle(10, 20, -5, 10)
+        self.assertEqual(str(cm.exception), "x must be >= 0")
+
+    def test_bad_y(self):
+        with self.assertRaises(ValueError) as cm:
+            r = Rectangle(10, 20, 5, -10)
+        self.assertEqual(str(cm.exception), "y must be >= 0")
+
+    def test_type_error_width(self):
+        with self.assertRaises(TypeError) as cm:
+            r = Rectangle("10", 20, 5, 10)
+        self.assertEqual(str(cm.exception), "width must be an integer")
+
+    def test_type_error_height(self):
+        with self.assertRaises(TypeError) as cm:
+            r = Rectangle(10, "20", 5, 10)
+        self.assertEqual(str(cm.exception), "height must be an integer")
+
+    def test_type_error_x(self):
+        with self.assertRaises(TypeError) as cm:
+            r = Rectangle(10, 20, "5", 10)
+        self.assertEqual(str(cm.exception), "x must be an integer")
+
+    def test_type_error_y(self):
+        with self.assertRaises(TypeError) as cm:
+            r = Rectangle(10, 20, 5, "10")
+        self.assertEqual(str(cm.exception), "y must be an integer")
+
+
 if __name__ == '__main__':
     unittest.main()
