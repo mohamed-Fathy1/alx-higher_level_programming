@@ -64,5 +64,5 @@ class Base:
             for obj in json_text:
                 instances.append(cls.create(**obj))
             return instances
-        except ImportError:
+        except IOError:
             return []
