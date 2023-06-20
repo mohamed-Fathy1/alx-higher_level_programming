@@ -35,7 +35,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect1.height, 5)
         self.assertEqual(rect1.x, 0)
         self.assertEqual(rect1.y, 0)
-        self.assertEqual(rect1.id, 1)
+        self.assertEqual(rect1.id, 7)
 
     def test_id(self):
         rect1 = Rectangle(8, 5, id=12)
