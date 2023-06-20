@@ -28,6 +28,9 @@ class Base:
         content_text = []
         for item in list_objs:
             content_text.append(item.to_dictionary())
-        content_text = Base.to_json_string(content_text)
+        if list is None:
+            content_text = Base.to_json_string(content_text)
+        else:
+            content_text = "[]"
         with open(filename, 'w+', encoding='utf-8') as fd:
             fd.write(content_text)
