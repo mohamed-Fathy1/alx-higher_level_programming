@@ -93,56 +93,20 @@ class Rectangle(Base):
                 print("#", end="")
             print("")
 
-    def update(self, *args, **kwargs):
-        """Everything is documented in models/rectangle.py"""
-        if args and len(args) != 0:
-            count = 0
-            for arg in args:
-                if count == 0:
-                    if arg is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
-                    else:
-                        self.id = arg
-                elif count == 1:
-                    self.width = arg
-                elif count == 2:
-                    self.height = arg
-                elif count == 3:
-                    self.x = arg
-                elif count == 4:
-                    self.y = arg
-                count += 1
-
-        elif kwargs and len(kwargs) != 0:
-            for k, v in kwargs.items():
-                if k == 'id':
-                    if v is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
-                    else:
-                        self.id = v
-                elif k == 'width':
-                    self.width = v
-                elif k == 'height':
-                    self.height = v
-                elif k == 'x':
-                    self.x = v
-                elif k == 'y':
-                    self.y = v
-
-    def to_dictionary(self):
-        """Return dictionary representation of the Rectangle"""
-        return {
-            "id": self.id,
-            "width": self.width,
-            "height": self.height,
-            "x": self.x,
-            "y": self.y
-        }
-
     def __str__(self):
-        """Return the print() and str() representation of the Rectangle"""
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                        self.x,
-                                                        self.y,
-                                                        self.width,
-                                                        self.heightt))
+        return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
+                f"{self.width}/{self.height}")
+
+    def update(self, *args):
+        '''update the the object'''
+        if args:
+            if len(args) > 0:
+                self.id = args[0]
+            if len(args) > 1:
+                self.width = args[1]
+            if len(args) > 2:
+                self.height = args[2]
+            if len(args) > 3:
+                self.x = args[3]
+            if len(args) > 4:
+                self.y = args[4]
