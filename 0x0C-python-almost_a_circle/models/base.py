@@ -57,9 +57,12 @@ class Base:
         '''load_from_file function'''
         filename = str(cls.__name__) + ".json"
         instances = []
-        with open(filename, 'r') as fd:
-            json_text = Base.from_json_string(fd.read())
+        try:
+            with open(filename, 'r') as fd:
+                json_text = Base.from_json_string(fd.read())
 
             for obj in json_text:
                 instances.append(cls.create(**obj))
-        return instances
+            return instances
+        except ImportError:
+            return []
