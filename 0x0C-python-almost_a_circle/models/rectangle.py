@@ -94,6 +94,7 @@ class Rectangle(Base):
             print("")
 
     def update(self, *args, **kwargs):
+        """Everything is documented in models/rectangle.py"""
         if args and len(args) != 0:
             count = 0
             for arg in args:
