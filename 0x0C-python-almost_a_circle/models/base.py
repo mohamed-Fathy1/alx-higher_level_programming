@@ -34,3 +34,10 @@ class Base:
             content_text = "[]"
         with open(filename, 'w+', encoding='utf-8') as fd:
             fd.write(content_text)
+
+    @staticmethod
+    def from_json_string(json_string):
+        '''from_json_string method'''
+        if json_string:
+            return json.loads(json_string)
+        return []
