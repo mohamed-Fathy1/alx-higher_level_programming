@@ -94,17 +94,6 @@ class Rectangle(Base):
             print("")
 
     def update(self, *args, **kwargs):
-        """
-        Update the Rectangle.
-        Args:
-            *args (int): New attribute values.
-                - 1st argument represents id attribute
-                - 2nd argument represents width attribute
-                - 3rd argument represents height attribute
-                - 4th argument represents x attribute
-                - 5th argument represents y attribute
-            **kwargs (dict): Key/value pairs of attributes.
-        """
         if args and len(args) != 0:
             count = 0
             for arg in args:
@@ -151,6 +140,5 @@ class Rectangle(Base):
 
     def __str__(self):
         """Return the print() and str() representation of the Rectangle"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                       self.x, self.y,
-                                                       self.width, self.height)
+        return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
+                f"{self.width}/{self.height}")
