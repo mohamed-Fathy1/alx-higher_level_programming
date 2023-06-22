@@ -108,7 +108,7 @@ class Base:
     @staticmethod
     def draw(list_rectangles, list_squares):
         '''draw shapes
-           
+
            Args:
            list_rectangles (list): A list of Rectangle objects to draw.
            list_squares (list): A list of square objects to draw.
