@@ -2,6 +2,7 @@
 ''' Base Module'''
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -103,3 +104,12 @@ class Base:
             return instances
         except IOError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        '''draw shapes'''
+        shape_list = list_rectangles + list_squares
+        draw_shape = turtle.Turtle()
+        draw_shape.title('Screen Demo')
+        draw_shape.bgcolor('yellow')
+        draw_shape.exitonclick()
