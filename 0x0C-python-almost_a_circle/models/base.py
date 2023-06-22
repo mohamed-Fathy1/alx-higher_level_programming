@@ -107,9 +107,38 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        '''draw shapes'''
+        '''draw shapes
+           
+           Args:
+           list_rectangles (list): A list of Rectangle objects to draw.
+           list_squares (list): A list of square objects to draw.
+        '''
         shape_list = list_rectangles + list_squares
+
         draw_shape = turtle.Turtle()
-        draw_shape.title('Screen Demo')
-        draw_shape.bgcolor('yellow')
-        draw_shape.exitonclick()
+        draw_shape.screen.bgcolor('#b7b7b7')
+        turtle.Screen().title("Draw Shapes")
+
+        for shape in shape_list:
+            draw_shape.goto(shape.x, shape.y)
+            if type(shape).__name__ == "Rectangle":
+                draw_shape.color("#ffffff", "#171C21")
+            else:
+                draw_shape.color("#000000", "#00a3e0")
+            draw_shape.shape('turtle')
+            draw_shape.pensize(4)
+            draw_shape.pendown()
+
+            draw_shape.begin_fill()
+            for _ in range(2):
+                draw_shape.forward(shape.width)
+                draw_shape.left(90)
+                draw_shape.forward(shape.height)
+                draw_shape.left(90)
+            draw_shape.end_fill()
+
+            draw_shape.penup()
+
+        draw_shape.hideturtle()
+        turtle.Screen().exitonclick()
+        turtle.done()
