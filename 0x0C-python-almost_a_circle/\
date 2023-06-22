@@ -70,18 +70,18 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        print(list_objs)
         filename = cls.__name__ + ".csv"
-        with open(filename, 'w') as fd:
-            if filename == 'Rectangle.csv':
-                filefelids = ['id', 'width', 'height', 'x', 'y']
-            else:
-                filefelids = ['id', 'size', 'x', 'y']
-            csv_writer = csv.DictWriter(fd, fieldnames=filefelids)
-            if list_objs:
-                file_objs = [item.to_dictionary() for item in list_objs]
-            else:
-                file_objs = '[]'
-            for line in file_objs:
+        content_text = []
+        if list_objs:
+            for item in list_objs:
+                content_text.append(item.to_dictionary())
+            content_text = Base.to_json_string(content_text)
+        else:
+            content_text = "[]"
+        with open(filename, 'w+', encoding='utf-8') as fd:
+            csv_writer = csv.writer(fd, delimiter=',')
+            for line in content_text:
                 csv_writer.writerow(line)
 
     @classmethod
@@ -91,15 +91,10 @@ class Base:
         instances = []
         try:
             with open(filename, 'r') as fd:
-                if cls.__name__ == "Rectangle":
-                    fieldnames = ["id", "width", "height", "x", "y"]
-                else:
-                    fieldnames = ["id", "size", "x", "y"]
-                csv_reader = csv.DictReader(fd, fieldnames=fieldnames)
-                csv_reader = [dict([k, int(v)] for k, v in d.items())
-                              for d in csv_reader]
-                for obj in csv_reader:
-                    instances.append(cls.create(**obj))
+                csv_reader = csv.reader(fd, delimiter=',')
+
+            for obj in csv_reader:
+                instances.append(cls.create(**obj))
             return instances
         except IOError:
             return []
