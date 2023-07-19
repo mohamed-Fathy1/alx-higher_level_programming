@@ -1,2 +1,2 @@
 -- computes the score average of all records in the table second_table of the database hbtn_0c_0 in your MySQL server.
-SELECT AVG(score) FROM 'average' second_table
+SELECT AVG(score) FROM 'average' second_table;
