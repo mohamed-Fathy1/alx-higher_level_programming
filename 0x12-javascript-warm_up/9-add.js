@@ -4,7 +4,7 @@ function add (a, b) {
   console.log(a + b);
 }
 
-const firstArg = process.argv[2];
-const secondArg = process.argv[3];
+const firstArg = Number(process.argv[2]);
+const secondArg = Number(process.argv[3]);
 
-if (Number(firstArg) && Number(secondArg)) { add(firstArg, secondArg); } else { console.log(NaN); }
+if (firstArg && secondArg) { add(firstArg, secondArg); } else { console.log(NaN); }
