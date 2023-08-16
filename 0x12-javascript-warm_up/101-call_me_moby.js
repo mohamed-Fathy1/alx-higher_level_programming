@@ -1,8 +1,9 @@
 #!/usr/bin/node
 exports.callMeMoby = function (x, theFunction) {
-  x = Math.abs(x);
-  while (x) {
-    theFunction();
-    --x;
+  if (x > 0) {
+    while (x) {
+      theFunction();
+      --x;
+    }
   }
 };
