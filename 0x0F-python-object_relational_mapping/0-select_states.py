@@ -24,7 +24,7 @@ try:
                          user=usr, passwd=password,
                          db=database, charset="utf8")
     cur = db.cursor()
-    cur.execute('''SELECT * FROM states''')
+    cur.execute('''SELECT * FROM states ORDER BY id ASC''')
     for row in cur._rows:
         print(row)
 except (MySQLdb.Error, Exception) as e:
