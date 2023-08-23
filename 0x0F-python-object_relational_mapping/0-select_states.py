@@ -19,6 +19,7 @@ password = argv[2]
 database = argv[3]
 
 try:
+    '''try this!!'''
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=usr, passwd=password,
                          db=database, charset="utf8")
@@ -27,4 +28,5 @@ try:
     for row in cur._rows:
         print(row)
 except (MySQLdb.Error, Exception) as e:
+    '''catch this!!'''
     print(e)
