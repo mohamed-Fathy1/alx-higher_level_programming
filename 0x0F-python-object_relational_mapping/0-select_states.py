@@ -18,8 +18,7 @@ usr = argv[1]
 password = argv[2]
 database = argv[3]
 
-try:
-    '''try this!!'''
+if __name__ == '__main__':
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=usr, passwd=password,
                          db=database, charset="utf8")
@@ -27,6 +26,5 @@ try:
     cur.execute('''SELECT * FROM states ORDER BY id ASC''')
     for row in cur._rows:
         print(row)
-except (MySQLdb.Error, Exception) as e:
-    '''catch this!!'''
-    print(e)
+    cur.close()
+    db.close()
