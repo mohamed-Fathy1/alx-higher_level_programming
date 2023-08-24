@@ -12,7 +12,7 @@ if __name__ == '__main__':
                          passwd=argv[2], db=argv[3], charset="utf8")
 
     cur = db.cursor()
-    cur.execute('''SELECT * FROM states WHERE name = %s
-                ORDER BY id''', (argv[4],))
+    cur.execute('''SELECT * FROM states WHERE name = {}
+                ORDER BY id'''.format(argv[4]))
     for row in cur._rows:
         print(row)
