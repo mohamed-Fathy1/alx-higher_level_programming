@@ -12,6 +12,6 @@ if __name__ == '__main__':
                          passwd=argv[2], db=argv[3], charset="utf8")
 
     cur = db.cursor()
-    cur.execute('''SELECT * FROM states WHERE name LIKE "N%"''')
+    cur.execute('''SELECT * FROM states WHERE LOWER(name) LIKE "n%"''')
     for row in cur._rows:
         print(row)
