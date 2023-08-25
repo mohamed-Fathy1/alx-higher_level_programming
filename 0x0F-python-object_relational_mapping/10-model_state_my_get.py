@@ -16,7 +16,7 @@ if __name__ == "__main__":
     session = Session(engine)
     query = session.query(State).filter_by(name=(sys.argv[4],)).one()
 
-    if (query):
+    try:
         print(query.id)
-    else:
+    except Exception:
         print('Not found')
