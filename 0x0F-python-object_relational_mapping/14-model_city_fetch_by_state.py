@@ -19,4 +19,4 @@ if __name__ == "__main__":
         City.state_id == State.id).order_by(City.id).all()
 
     for row in query:
-        print(f"{row[1].name}: ({row[0].id})  {row[0].name}")
+        print(f"{row[1].name}: ({row[0].id}) {row[0].name}")
