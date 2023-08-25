@@ -18,5 +18,5 @@ if __name__ == "__main__":
     query = session.query(City, State).filter(
         City.state_id == State.id).order_by(City.id).all()
 
-    for idx, row in enumerate(query):
-        print(f"{row[1].name}: ({idx+1})  {row[0].name}")
+    for row in query:
+        print(f"{row[1].name}: ({row[0].id})  {row[0].name}")
