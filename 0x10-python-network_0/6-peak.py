@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-# Write a function that finds a peak in a list of unsorted integers.
+'''Write a function that finds a peak in a list of unsorted integers.'''
 
 
 def find_peak(list_of_integers):
+    '''Find a peak in a list of unsorted integers.'''
     start, end = 0, len(list_of_integers) - 1
     while (start <= end):
         mid = start + ((end - start) // 2)
