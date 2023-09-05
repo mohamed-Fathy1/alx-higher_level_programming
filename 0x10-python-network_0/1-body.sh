@@ -1,3 +1,3 @@
 #!/bin/bash
 # This script will print the body of the response
-cur "$1"
+cur -s -X GET "$1"
