@@ -11,6 +11,6 @@ if __name__ == '__main__':
     url = argv[1]
     try:
         with urlopen(url) as res:
-            print(res.read())
+            print(res.read().decode('utf-8'))
     except HTTPError as e:
-        print(e.code)
+        print('Error code:', e.code)
