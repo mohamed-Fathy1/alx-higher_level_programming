@@ -7,7 +7,7 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    response = requests.post(argv[1])
+    response = requests.get(argv[1])
 
     if response.ok:
         print(response.text)
