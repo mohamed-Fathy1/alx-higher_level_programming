@@ -12,7 +12,7 @@ if __name__ == "__main__":
         "Authorization": f'Bearer {argv[2]}'
     }
 
-    response = requests.post(
+    response = requests.get(
         'https://api.github.com/user', headers=headers)
     res = response.json()
     print(res['id'])
