@@ -1,19 +1,21 @@
 #!/usr/bin/python3
-"""lists the 10 most recent commits on a given GitHub repository.
 """
-import sys
+takes in a URL, sends a request to the URL and displays the value of the
+variable X-Request-Id in the response header
+"""
 import requests
-
+from sys import argv
 
 if __name__ == "__main__":
-    url = "https://api.github.com/repos/{}/{}/commits".format(
-        sys.argv[2], sys.argv[1])
 
-    r = requests.get(url)
-    res = r.json()
+    response = requests.get(
+        "https://api.github.com/repos/{}/{}/commits".format(
+            argv[2], argv[1]))
+
+    res = response.json()
     i = 0
     while 10 > i < len(res):
         print("{}: {}".format(
-                res[i].get("sha"),
-                res[i].get("commit").get("author").get("name")))
+            res[i].get("sha"),
+            res[i].get("commit").get("author").get("name")))
         i += 1
