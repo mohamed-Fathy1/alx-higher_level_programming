@@ -7,7 +7,7 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    payload = {'q': argv[1] if argv[1] else ""}
+    payload = {'q': argv[1] if len(argv) > 1 else ""}
     response = requests.post('http://0.0.0.0:5000/search_user', data=payload)
     res = response.json()
     if isinstance(res, dict):
