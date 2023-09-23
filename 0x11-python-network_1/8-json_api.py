@@ -9,11 +9,12 @@ from sys import argv
 if __name__ == "__main__":
     payload = {'q': argv[1] if len(argv) > 1 else ""}
     response = requests.post('http://0.0.0.0:5000/search_user', data=payload)
-    res = response.json()
-    if isinstance(res, dict):
-        if res:
-            print(f"[{res['id']}] {res['name']}")
+    try:
+        res = response.json()
+        if isinstance(res, dict):
+            if res:
+                print(f"[{res['id']}] {res['name']}")
         else:
             print("No result")
-    else:
+    except ValueError:
         print("Not a valid JSON")
