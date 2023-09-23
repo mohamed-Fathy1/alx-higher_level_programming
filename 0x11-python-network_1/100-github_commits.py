@@ -16,5 +16,5 @@ if __name__ == "__main__":
     i = 0
     while 10 > i < len(res):
         print(f"{res[i].get('sha')}: ",
-              res[i].get('commit').get('author').get('name'))
+              f"{res[i].get('commit').get('author').get('name')}")
         i += 1
