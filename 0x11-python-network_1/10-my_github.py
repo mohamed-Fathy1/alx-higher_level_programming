@@ -15,4 +15,4 @@ if __name__ == "__main__":
     response = requests.get(
         'https://api.github.com/user', headers=headers)
     res = response.json()
-    print(res['id'])
+    print(res.get('id'))
