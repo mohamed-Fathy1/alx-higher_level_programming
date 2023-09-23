@@ -12,11 +12,9 @@ if __name__ == "__main__":
         f'https://api.github.com/repos/{argv[1]}/{argv[2]}/commits')
     res = response.json()
     try:
-        i = 0
-        while 10 > i < len(res):
+        for i in range(10):
             print("{}: {}".format(
                 res[i].get("sha"),
                 res[i].get("commit").get("author").get("name")))
-            i += 1
     except IndexError:
         pass
