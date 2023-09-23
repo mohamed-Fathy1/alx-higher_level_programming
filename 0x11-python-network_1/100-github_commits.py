@@ -12,9 +12,6 @@ if __name__ == "__main__":
         f'https://api.github.com/repos/{argv[1]}/{argv[2]}/commits')
     res = response.json()
     i = 0
-    for commit in res:
-        if i == 10:
-            break
-        print(f'{commit.get("sha")}: ',
-              f'{commit.get("commit").get("author").get("name")}')
-        i += 1
+    for commit in range(10):
+        print(f'{res[commit].get("sha")}: ',
+              f'{res[commit].get("commit").get("author").get("name")}')
