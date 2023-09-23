@@ -15,6 +15,6 @@ if __name__ == "__main__":
     for commit in res:
         if i == 10:
             break
-        print(f'{commit.get("sha")}: \
-{commit.get("commit").get("author").get("name")}')
+        print(f'{commit.get("sha")}: ',
+              f'{commit.get("commit").get("author").get("name")}')
         i += 1
