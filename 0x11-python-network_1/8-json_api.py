@@ -14,7 +14,7 @@ if __name__ == "__main__":
         if isinstance(res, dict):
             if res:
                 print(f"[{res['id']}] {res['name']}")
-        else:
-            print("No result")
+            else:
+                print("No result")
     except ValueError:
         print("Not a valid JSON")
