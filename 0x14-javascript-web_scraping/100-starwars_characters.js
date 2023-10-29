@@ -12,15 +12,11 @@ request.get(url, (error, res, body) => {
   }
   const characters = JSON.parse(body).characters;
   characters.forEach((character) => {
-    const characters = film.characters;
-    characters.forEach((character) => {
-      request.get(character, (error, res, body) => {
-        if (error) {
-          console.error('error:', error);
-        }
-        console.log(JSON.parse(body).name);
-      });
+    request.get(character, (error, res, body) => {
+      if (error) {
+        console.error('error:', error);
+      }
+      console.log(JSON.parse(body).name);
     });
   });
-  console.log(count);
 });
