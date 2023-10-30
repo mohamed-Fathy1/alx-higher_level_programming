@@ -4,10 +4,24 @@
 const request = require('request');
 
 const id = process.argv[2];
-const url = 'https://swapi-api.hbtn.io/api/films/' + id + '/';
+const url = 'https://swapi-api.hbtn.io/api/films/' + id;
 
-request(url)
-  .then(response => JSON.parse(response.body).characters)
-  .then(characters => Promise.all(characters.map(char => request(char))))
-  .then(characters => characters.map(char => JSON.parse(char.body).name))
-  .then(names => names.forEach(name => console.log(name)));
+function printCharacters (characters, i) {
+  request.get(character[i], (error, res, body) => {
+    if (error) {
+      console.error('error:', error);
+    }
+    console.log(JSON.parse(body).name);
+    if (i + 1 < characters.length) {
+      printCharacters(characters, i + 1);
+    }
+  });
+}
+
+request.get(url, (error, res, body) => {
+  if (error) {
+    console.error('error:', error);
+  }
+  const characters = JSON.parse(body).characters;
+  printCharacters(characters, 0);
+});
