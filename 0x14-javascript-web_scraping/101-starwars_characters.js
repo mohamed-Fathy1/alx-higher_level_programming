@@ -7,7 +7,7 @@ const id = process.argv[2];
 const url = 'https://swapi-api.hbtn.io/api/films/' + id;
 
 function printCharacters (characters, i) {
-  request.get(character[i], (error, res, body) => {
+  request.get(characters[i], (error, res, body) => {
     if (error) {
       console.error('error:', error);
     }
